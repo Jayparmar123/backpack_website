@@ -1,0 +1,276 @@
+::selection{
+    color: white;
+    background-color: #222222;
+}
+
+*{
+    font-family: cursive;
+}
+
+.clr1{
+    background-color: #ff4545;
+    color: white;
+}
+
+.logo{
+    max-width: 136px;
+}
+.nav-my{
+    color: black !important; 
+    text-decoration: none;
+    padding: 8px;
+
+}
+.nav-my:hover{
+    color: #ff4545 !important;
+}
+.ion{
+    color: #ff4545 !important;
+}
+
+.img1{
+    background-image: url(images/BCG.webp);
+    background-position: center;
+    background-size: cover;
+    height: 600px;
+    
+}
+
+.img-overlay{
+    background-color: rgba(255, 69, 69, 0.4);
+    height: 600px;
+    display: flex;
+    align-items: center;
+}
+
+.clr2{
+    color: white;
+}
+
+.bcw{
+    background-color: white;
+}
+
+.h1-main{
+    font-size: 58px;
+    font-weight: 700;
+}
+
+.btn-1{
+    height: 50px;
+    width: 200px;
+    border-radius: 30px;
+    border: none;
+    background-color: #ff4545;
+    color: white;
+    font-weight: 600;
+}
+.btn-1:hover{
+    background-color: #ff8944;
+    color: white;
+}
+
+.mw{
+    max-width: 1920px;
+}
+
+.fs{
+    font-size: 80px;
+    color: #ff6e68;
+}
+
+.h22{
+    font-size: 50px;
+    color: #e3e3e3;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.bcg{
+    background-color: #f4f0ec;
+}
+
+.fs1{
+    font-size: 50px;
+    color: #ff4545;
+    margin-bottom: 30px;
+}
+
+.bcb{
+    background-color: #222222;
+}
+.bcbb{
+    background-color: black;
+}
+
+.footer-button{
+    height: 30px;
+    width: 50px;
+    border-radius: 20px;
+    border: 0;
+    background-color: #ff4545;
+    color: white;
+    position: absolute;
+    right: 10px; top: 50%; 
+    transform: translateY(-50%);
+}
+
+.dv{
+    height: 50px;
+    width: auto;
+    position: relative;
+    margin-top: 25px;
+}
+
+.inp{
+    width: 100%;
+    height: 50px;
+    background-color: #222222;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+.ul{
+    padding: 0;
+    margin: 0;
+}
+
+ul li{
+    list-style: none;
+    font-size: 15px;
+    display: block;
+}
+
+.b:hover{
+    color: #ff4545;
+}
+
+p a{
+    text-decoration: none;
+    color: white;
+}
+p a:hover{
+    color: #ff4545;
+}
+
+li a{
+    text-decoration: none;
+    color: white;
+}
+
+.bg{
+    background-color: #f5f5f5;
+}
+
+.inp1{
+    width: 100%;
+    height: 40px;
+    padding-left: 20px;
+    outline: none;
+    background-color: #fcfcfc;
+    border: 1px solid #e3e3e3;
+}
+
+.clgr{
+    color: #ff6e68;
+}
+
+.bdr{
+    border: 1px solid lightgrey;
+}
+
+.pp{
+   border-bottom: 1px solid black;
+   display: inline-block;
+}
+.pp:hover{
+    color: #ff4545;
+    border-bottom: 1px solid #ff4545;
+}
+
+.im{
+    height: 100%;
+    width: 100%;
+}
+
+.im:hover{
+    background-color: rgba(0,0,0,0.5);
+}
+
+.blog-6{
+    background-image: url(images/blog-6.webp);
+    background-position: center;
+    background-size: cover;
+    height: 320px;
+    width: 100%;
+}
+
+.blog-5{
+    background-image: url(images/blog-5.webp);
+    background-position: center;
+    background-size: cover;
+    height: 320px;
+    width: 100%;
+}
+
+.blog-4{
+    background-image: url(images/blog-4.png);
+    background-position: center;
+    background-size: cover;
+    height: 320px;
+    width: 100%;
+}
+
+.blog-3{
+    background-image: url(images/blog-3.webp);
+    background-position: center;
+    background-size: cover;
+    height: 320px;
+    width: 100%;
+}
+
+.blog-2{
+    background-image: url(images/blog-2.png);
+    background-position: center;
+    background-size: cover;
+    height: 320px;
+    width: 100%;
+}
+
+.blog-1{
+    background-image: url(images/blog-1.png);
+    background-position: center;
+    background-size: cover;
+    height: 320px;
+    width: 100%;
+}
+
+.bdr1{
+    box-shadow: 0px 0px 5px 1px grey;
+}
+
+.bs{
+    box-shadow: 0px 2px 5px lightgray;
+}
+
+.clb{
+    color: black;
+}
+
+.hvbtn{
+    height: 40px;
+    width: 100%;
+    background-color: #ff4545;
+    color: white;
+    border: 0;
+}
+
+.c button{
+    display: none;
+}
+
+.c:hover button{
+    display: inline;
+}

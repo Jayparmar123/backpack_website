@@ -1,0 +1,246 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+    <!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="container-fluid clr1">
+      <div class="container d-flex justify-content-end align-items-center">
+          <p class="m-2">FREE DELIVERY OVER $100 ON ALL PRODUCTS</p>
+      </div>
+    </div>
+      
+      <nav class="navbar navbar-expand-md sticky-md-top bcw bs">
+          <div class="container">
+            <a class="navbar-brand" href="#"><img class="logo" src="{% static 'images/blogo.webp' %}" alt=""></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+              <ul class="navbar-nav">
+                <li class="nav-item px-2">
+                  <a class="nav-link nav-my" href="index">HOMEPAGE</a>
+                </li>
+                <li class="nav-item px-2">
+                  <a class="nav-link nav-my" href="shop">SHOP</a>
+                </li>
+                <li class="nav-item px-2">
+                  <a class="nav-link nav-my" href="blog">BLOG</a>
+                </li>
+                <li class="nav-item px-2">
+                  <a class="nav-link nav-my" href="contact">CONTACT</a>
+                </li>
+                <li class="nav-item px-2">
+                  <a class="nav-link nav-my" href="account">MY ACCOUNT</a>
+                </li>
+                <li class="nav-item px-2">
+                  <a class="nav-link" href="cart">
+                    <i class="fa-solid fa-cart-shopping ion"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+    
+
+      <div class="container-fluid img1 p-0">
+        <div class="container-fluid img-overlay">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6 clr2">
+                <p>NULLAM MAXIMUS SEMPER EST</p>
+                <h1 class="h1-main">PERFECT FOR THE OUTDOORS</h1>
+                <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+                <button class="btn-1">DISCOVER NOW</button>
+              </div>
+              <div class="col-6"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container mt-5 text-center">
+        <div class="row">
+          <div class="col-4">
+            <i class="fa-solid fa-plane fs"></i>
+            <h6 class="mt-3">TRAVEL</h6>
+            <p>Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+          </div>
+          <div class="col-4">
+            <i class="fa-solid fa-book fs"></i>
+            <h6 class="mt-3">STUDY</h6>
+            <p>Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+          </div>
+          <div class="col-4">
+            <i class="fa-solid fa-compass fs"></i>
+            <h6 class="mt-3">VACATION</h6>
+            <p>Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+          </div>
+          <div class="col-4">
+            <i class="fa-solid fa-folder fs"></i>
+            <h6 class="mt-3">WORK</h6>
+            <p>Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+          </div>
+          <div class="col-4">
+            <i class="fa-solid fa-person-hiking fs"></i>
+            <h6 class="mt-3">HIKING</h6>
+            <p>Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+          </div>
+          <div class="col-4">
+            <i class="fa-solid fa-heart fs"></i>
+            <h6 class="mt-3">FITNESS</h6>
+            <p>Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+      <div class="container mt-5">
+        <div class="d-flex align-items-center">
+          <div class="col-6">
+            <p>ABOUT OUR COMPANY</p>
+            <h2>BEST BRAND BEST QUALITY</h2>
+            <p>Sed maximus ante vel ipsum euismod maximus. Sed efficitur semper lacus, sit amet facilisis nulla gravida sit amet. Vivamus eleifend, elit eget scelerisque pulvinar, augue dui rutrum tellus, porta scelerisque purus mi a enim. Nulla eget nunc convallis, blandit leo ut, iaculis orci. Ut condimentum molestie ex nec lacinia.</p>
+            <p>Morbi aliquet interdum nisi, id pulvinar enim elementum quis. Praesent tincidunt nisi ac purus hendrerit, non molestie eros malesuada. Pellentesque porta neque eu metus efficitur, ut commodo diam tempus.</p>
+            <button class="btn-1">MORE ABOUT US</button>
+          </div>
+          <div class="col-6">
+            <img src="{% static 'images/img-1.webp' %}" class="img-fluid" alt="">
+          </div>
+        </div>
+      </div>
+
+      <div class="container text-center mt-5">
+        <div class="row">
+          <div class="col-3">
+            <h2 class="h22">68</h2>
+            <p>BEST BRANDS</p>
+          </div>
+          <div class="col-3">
+            <h2 class="h22">99+</h2>
+            <p>QUALITY PRODUCTS</p>
+          </div>
+          <div class="col-3">
+            <h2 class="h22">16</h2>
+            <p>TOP CATEGORIES</p>
+          </div>
+          <div class="col-3">
+            <h2 class="h22">5K</h2>
+            <p>HAPPY CUSTOMERS</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-fluid bcg text-center">
+        <div class="container py-5">
+          <div class="row">
+            <div class="col-6 px-2">
+              <i class="fa-solid fa-quote-left fs1"></i>
+              <p>Aliquam dignissim lacinia tristique nulla lobortis nunc ac eros scelerisque varius suspendisse sit amet urna vitae urna semper quis at ligula.</p>
+              <img src="" alt="">
+              <h5>SOFIA MILLER</h5>
+              <p>5 stars</p>
+            </div>
+            <div class="col-6 px-2">
+              <i class="fa-solid fa-quote-left fs1"></i>
+              <p>Aliquam dignissim lacinia tristique nulla lobortis nunc ac eros scelerisque varius suspendisse sit amet urna vitae urna semper quis at ligula.</p>
+              <img src="" alt="">
+              <h5>MARK LUGWID</h5>
+              <p>5 stars</p>
+            </div>
+            <div class="col-6 px-2 mt-3">
+              <i class="fa-solid fa-quote-left fs1"></i>
+              <p>Aliquam dignissim lacinia tristique nulla lobortis nunc ac eros scelerisque varius suspendisse sit amet urna vitae urna semper quis at ligula.</p>
+              <img src="" alt="">
+              <h5>MIKE KENLI</h5>
+              <p>5 stars</p>
+            </div>
+            <div class="col-6 px-2 mt-3">
+              <i class="fa-solid fa-quote-left fs1"></i>
+              <p>Aliquam dignissim lacinia tristique nulla lobortis nunc ac eros scelerisque varius suspendisse sit amet urna vitae urna semper quis at ligula.</p>
+              <img src="" alt="">
+              <h5>LOLA MILES</h5>
+              <p>5 stars</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+      <footer>
+        <div class="container-fluid bcb clr1 py-5">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-3 mt-2">
+                <h6 class="mb-4">CONTACT INFO</h6>
+                <p class="ps-4">London Eye, London, United Kingdom</p>
+                <p class="ps-4">621-254-2147</p>
+                <p class="ps-4 b"><a href="mailto:contact@support.com">contact@support.com</a></p>
+              </div>
+              <div class="col-md-3 mt-2">
+                <h6 class="mb-4">INFORMATION</h6>
+                <ul class="ul">
+                  <li><a href="#" class="b">About Us</a></li>
+                  <li><a href="#" class="b">Store Location</a></li>
+                  <li><a href="#" class="b">Contact Us</a></li>
+                  <li><a href="#" class="b">Shipping & Delivery</a></li>
+                  <li><a href="#" class="b">Latest News</a></li>
+                </ul>
+              </div>
+              <div class="col-md-3 mt-2">
+                <h6 class="mb-4">OUR SERVICE</h6>
+                <ul class="ul">
+                  <li><a href="#" class="b">About Us</a></li>
+                  <li><a href="#" class="b">Store Location</a></li>
+                  <li><a href="#" class="b">Contact Us</a></li>
+                  <li><a href="#" class="b">Shipping & Delivery</a></li>
+                  <li><a href="#" class="b">Latest News</a></li>
+                </ul>
+              </div>
+              <div class="col-md-3 mt-2">
+                <h6 class="mb-4">NEWSLETTER</h6>
+                <div class="dv">
+                  <input type="email" placeholder="Enter your email address" class="inp">
+                  <button class="footer-button">Go</button>
+                </div>
+                <input type="checkbox" class="mt-3">
+                <span>GDPR Checkbox Label</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container-fluid bcbb clr1">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12 text-center py-2">
+                <p class="m-0 fs-6">© COPYRIGHT - OCEANWP</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+</body>
+</html>
