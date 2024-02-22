@@ -6,3 +6,4 @@ from webs.models import *
 admin.site.register(contactinfo)
 admin.site.register(signupinfo)
 admin.site.register(shopproduct)
+admin.site.register(cartinfo)

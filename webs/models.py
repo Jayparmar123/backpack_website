@@ -28,3 +28,11 @@ class shopproduct(models.Model):
 
     def __str__(self):
         return self.pname
+
+class cartinfo(models.Model):
+    pname=models.CharField(max_length=30)
+    price=models.IntegerField()
+    pimage=models.ImageField(upload_to="images/")
+
+    def __str__(self):
+        return self.pname

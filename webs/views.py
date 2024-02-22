@@ -73,9 +73,16 @@ def linfo(request):
     messages.error(request,"sorry user not found in database .......")
     return render(request,'myaccount.html')
         
-def cartinfo(request):
+def cartinfos(request):
     pid=request.POST['nm']
+    pnam=request.POST['nm1']
+    pprice=request.POST['nm2']
+    pimage=request.POST['nm3']
 
-    obj=shopproduct.objects.all().filter(id=pid)
+    # obj=shopproduct.objects.all().filter(id=pid)
+    obj1=cartinfo(pname=pnam,price=pprice,pimage=pimage)
+    obj1.save()
 
-    return render(request,'cart.html',{'shop':obj})
+    obj = cartinfo.objects.all()
+
+    return render(request,'cart.html',{'cart':obj})
