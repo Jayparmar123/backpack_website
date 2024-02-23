@@ -31,7 +31,7 @@ class shopproduct(models.Model):
 
 class cartinfo(models.Model):
     pname=models.CharField(max_length=30)
-    price=models.IntegerField()
+    price=models.CharField(max_length=30)
     pimage=models.ImageField(upload_to="images/")
 
     def __str__(self):

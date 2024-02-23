@@ -69,21 +69,42 @@
             </div>
           </div>
 
-          <div class="container">
+          {% for i in cart %}
+          <div class="container text-center my-5">
             <div class="row">
               <div class="col-md-12">
                 <div class="row">
-                  <div class="col-md-2"></div>
-                  <div class="col-md-2"></div>
-                  <div class="col-md-2"></div>
-                  <div class="col-md-2"></div>
-                  <div class="col-md-2"></div>
-                  <div class="col-md-2"></div>
+                  <div class="col-md-2">Image</div>
+                  <div class="col-md-2">Product</div>
+                  <div class="col-md-2">Price</div>
+                  <div class="col-md-2">Quantity</div>
+                  <div class="col-md-2">Subtotal</div>
+                  <div class="col-md-2">Cancel</div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="d-flex justify-content-around align-items-center">
+                  <div class="col-md-2">
+                    <img src="/media/{{i.pimage}}" class="img-fluid" height="70px" width="70px" alt="">
+                  </div>
+                  <div class="col-md-2">{{i.pname}}</div>
+                  <div class="col-md-2">{{i.price}}</div>
+                  <div class="col-md-2 d-flex justify-content-center">
+                    <button><i class="fa-solid fa-minus"></i></button>
+                    <input type="number" style="width: 50px;">
+                    <button><i class="fa-solid fa-plus"></i></button>
+                  </div>
+                  <div class="col-md-2">{{i.price}}</div>
+                  <div class="col-md-2">
+                    <button>
+                      <i class="fa-solid fa-xmark"></i>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-
+          {% endfor %}
 
           <footer>
             <div class="container-fluid bcb clr1 py-5">

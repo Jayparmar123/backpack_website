@@ -25,7 +25,9 @@ def register(request):
     return render(request,'signup.html')
 
 def cart(request):
-    return render(request,'cart.html')
+    obj = cartinfo.objects.all()
+
+    return render(request,'cart.html',{'cart':obj})
 
 def store(request):
     fn = request.GET.get('nm')
