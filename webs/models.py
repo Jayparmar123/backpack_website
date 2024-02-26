@@ -30,9 +30,14 @@ class shopproduct(models.Model):
         return self.pname
 
 class cartinfo(models.Model):
+    pid=models.IntegerField()
     pname=models.CharField(max_length=30)
     price=models.CharField(max_length=30)
     pimage=models.ImageField(upload_to="images/")
 
     def __str__(self):
         return self.pname
+    
+class getinfos(models.Model):
+    pluss=models.IntegerField()
+    minuss=models.IntegerField()

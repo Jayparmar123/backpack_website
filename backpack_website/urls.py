@@ -37,7 +37,8 @@ urlpatterns = [
     path('signupdata',views.data),
     path('cart',views.cart),
     path('logininfo',views.linfo),
-    path('addtocart',views.cartinfos)
+    path('addtocart',views.cartinfos),
+    path('quantity',views.quant),
 
 
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

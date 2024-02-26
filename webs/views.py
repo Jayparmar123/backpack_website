@@ -82,9 +82,20 @@ def cartinfos(request):
     pimage=request.POST['nm3']
 
     # obj=shopproduct.objects.all().filter(id=pid)
-    obj1=cartinfo(pname=pnam,price=pprice,pimage=pimage)
+    obj1=cartinfo(pid=pid,pname=pnam,price=pprice,pimage=pimage)
     obj1.save()
 
     obj = cartinfo.objects.all()
 
     return render(request,'cart.html',{'cart':obj})
+
+def quant(request):
+    minus=request.GET.get('btn1')
+    plus=request.GET.get('btn2')
+
+    obj1=getinfos(minuss=minus,pluss=plus)
+    obj1.save()
+
+    obj = getinfos.objects.all()
+
+    return render(request,'cart.html',{'shop':obj})
