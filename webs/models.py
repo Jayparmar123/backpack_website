@@ -33,6 +33,8 @@ class cartinfo(models.Model):
     pid=models.IntegerField()
     pname=models.CharField(max_length=30)
     price=models.CharField(max_length=30)
+    pquantity=models.CharField(max_length=2,default=1)
+    ptotalprice=models.CharField(max_length=10,default=50)
     pimage=models.ImageField(upload_to="images/")
 
     def __str__(self):

@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import HttpResponse
 from django.shortcuts import render
 from webs.models import *
@@ -89,13 +90,42 @@ def cartinfos(request):
 
     return render(request,'cart.html',{'cart':obj})
 
-def quant(request):
-    minus=request.GET.get('btn1')
-    plus=request.GET.get('btn2')
+def delete(request):
+    value=request.GET['value']
+    obj=cartinfo.objects.all().filter(pid=value)
+    obj.delete()
 
-    obj1=getinfos(minuss=minus,pluss=plus)
-    obj1.save()
+    output=cartinfo.objects.all()
+    return render(request,'cart.html',{'cart':output})
 
-    obj = getinfos.objects.all()
 
-    return render(request,'cart.html',{'shop':obj})
+def update(request):
+    value=request.GET['id']
+    pqty=request.GET['qty']
+    pqty=int(pqty)
+    pqty=pqty+1
+    data = cartinfo.objects.get(pid=value)
+    data.pquantity=pqty
+    data.ptotalprice=int(data.ptotalprice)+50
+    data.save()
+
+    obj = cartinfo.objects.all()
+
+    return render(request,'cart.html',{'cart':obj})
+
+
+def uptodate(request):
+    value=request.GET['id']
+    pqty=request.GET['qty']
+    pqty=int(pqty)
+    pqty=pqty-1
+    data = cartinfo.objects.get(pid=value)
+    data.pquantity=pqty
+    data.ptotalprice=int(data.ptotalprice)-50
+    data.save()
+
+    obj = cartinfo.objects.all()
+
+    return render(request,'cart.html',{'cart':obj})
+
+

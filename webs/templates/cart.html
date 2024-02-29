@@ -74,38 +74,45 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="row">
-                  <div class="col-md-2">SR.No.</div>
-                  <div class="col-md-2">Image</div>
-                  <div class="col-md-2">Product</div>
-                  <div class="col-md-2">Price</div>
-                  <div class="col-md-2">Quantity</div>
-                  <div class="col-md-2">Subtotal</div>
+                  <div class="col-2">SR.No.</div>
+                  <div class="col-2">Image</div>
+                  <div class="col-2">Product</div>
+                  <div class="col-2">Price</div>
+                  <div class="col-2">Subtotal</div>
+                  <div class="col-2">Quantity</div>
                   <!-- <div class="col-md-2">Cancel</div> -->
                 </div>
               </div>
               <div class="col-md-12">
                 <div class="d-flex justify-content-around align-items-center">
-                  <div class="col-md-2">{{i.pid}}</div>
-                  <div class="col-md-2">
+                  <div class="col-2">{{i.pid}}</div>
+                  <div class="col-2">
                     <img src="/media/{{i.pimage}}" class="img-fluid" height="70px" width="70px" alt="">
                   </div>
-                  <div class="col-md-2">{{i.pname}}</div>
-                  <div class="col-md-2">{{i.price}}</div>
-                  <div class="col-md-2 total">{{i.price}}</div>
-                  <div class="col-md-2 d-flex justify-content-center">
-                    
-                    <!-- <form action=""> -->
-                    <button onclick="decrease('{{i.id}}','{{i.price}}')"><i class="fa-solid fa-minus"></i></button>
+                  <div class="col-2">{{i.pname}}</div>
+                  <div class="col-2">{{i.price}}</div>
+                  <div class="col-2 total">{{i.ptotalprice}}</div>
+                  <div class="col-2 d-flex justify-content-center">
+                    <!-- <button onclick="decrease('{{i.pid}}','{{i.price}}')"><i class="fa-solid fa-minus"></i></button>
                     <div class="d-inline plus">1</div>
-                    <button onclick="input('{{i.id}}','{{i.price}}')"><i class="fa-solid fa-plus"></i></button>
-                  <!-- </form> -->
-
+                    <button onclick="input('{{i}}','{{i.price}}')"><i class="fa-solid fa-plus"></i></button> -->
+                    <form action="uptodate">
+                      <input type="text" name="id" value="{{i.pid}}" hidden>
+                      <input type="text" name="qty" value="{{i.pquantity}}" style="width: 20px;" hidden>
+                      <input type="submit" value="-" class="ms-0">
+                    </form>
+                    <form action="update" class="ms-1">
+                      <input type="text" name="id" value="{{i.pid}}" hidden>
+                      <input type="text" name="qty" value="{{i.pquantity}}" style="width: 20px;">
+                      <input type="submit" value="+" class="ms-0">
+                    </form>
+                     
+                  <form action="delete">
+                    <input type="text" name="value" value="{{i.pid}}" hidden>
+                    <input type="submit" value="X" class="ms-3">
+                  </form>
                   </div>
-                  <!-- <div class="col-md-2">
-                    <button>
-                      <i class="fa-solid fa-xmark"></i>
-                    </button>
-                  </div> -->
+
                 </div>
               </div>
             </div>
@@ -167,27 +174,26 @@
           </footer>
 
           <script>
+            // function input(nm,total){
+            //   value=document.getElementsByClassName('plus');
+            //   console.log(value)
+              // tprice=document.getElementsByClassName('total')[nm].innerHTML;
+              // value=Number(value)
+              // tprice=Number(tprice)
+              // document.getElementsByClassName('plus')[nm].innerHTML=(value+1)
+              // document.getElementsByClassName('total')[nm].innerHTML=(tprice+50);
+            // }
 
-            function input(index,total){
-              value=document.getElementsByClassName('plus')[index-1].innerHTML;
-              tprice=document.getElementsByClassName('total')[index-1].innerHTML;
-              value=Number(value)
-              tprice=Number(tprice)
-              document.getElementsByClassName('plus')[index-1].innerHTML=(value+1)
-              document.getElementsByClassName('total')[index-1].innerHTML=(tprice+50);
-
-            }
-
-            function decrease(index,total){
-              value=document.getElementsByClassName('plus')[index-1].innerHTML;
-              tprice=document.getElementsByClassName('total')[index-1].innerHTML;
-              value=Number(value)
-              tprice=Number(tprice)
-              document.getElementsByClassName('plus')[index-1].innerHTML=(value-1)
-              document.getElementsByClassName('total')[index-1].innerHTML=(tprice-50);
-              // console.log(index);
-            }
-          </script>
+            // function decrease(index,total){
+            //   value=document.getElementsByClassName('plus')[index-1].innerHTML;
+            //   tprice=document.getElementsByClassName('total')[index-1].innerHTML;
+            //   value=Number(value)
+            //   tprice=Number(tprice)
+            //   document.getElementsByClassName('plus')[index-1].innerHTML=(value-1)
+            //   document.getElementsByClassName('total')[index-1].innerHTML=(tprice-50);
+            //   // console.log(index);
+            // }
+          </script>     
     
 </body>
 </html>
