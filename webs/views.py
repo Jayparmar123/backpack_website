@@ -1,8 +1,11 @@
-from django.http import JsonResponse
+from django.http import HttpResponseBadRequest, HttpResponseNotFound, JsonResponse
 from django.shortcuts import HttpResponse
+from django.shortcuts import redirect
 from django.shortcuts import render
 from webs.models import *
 from django.contrib import messages
+from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponseRedirect
 
 # Create your views here.
 
@@ -100,32 +103,65 @@ def delete(request):
 
 
 def update(request):
-    value=request.GET['id']
-    pqty=request.GET['qty']
-    pqty=int(pqty)
-    pqty=pqty+1
-    data = cartinfo.objects.get(pid=value)
-    data.pquantity=pqty
-    data.ptotalprice=int(data.ptotalprice)+50
-    data.save()
+    if request.method == 'POST':
+        value = request.POST.get('id')
+        pqty = request.POST.get('qty')
+        
+        # Ensure 'id' and 'qty' parameters are present
+        if not (value and pqty):
+            return HttpResponseBadRequest("Missing 'id' or 'qty' parameter.")
+        
+        try:
+            pqty = int(pqty)
+        except ValueError:
+            return HttpResponseBadRequest("Invalid 'qty' parameter.")
 
-    obj = cartinfo.objects.all()
-
-    return render(request,'cart.html',{'cart':obj})
+        try:
+            data = get_object_or_404(cartinfo, pid=value)
+            data.pquantity = int(data.pquantity)
+            data.pquantity += 1
+            data.ptotalprice = int(data.ptotalprice)
+            data.ptotalprice += 50
+            data.save()
+        except cartinfo.DoesNotExist:
+            return HttpResponseNotFound("Cart item not found.")
+        
+        # Redirect to prevent data submission on page refresh
+        return HttpResponseRedirect('/cart')  # Redirect to the same URL
+    else:
+        # Handle non-POST requests appropriately
+        return redirect('index.html')
 
 
 def uptodate(request):
-    value=request.GET['id']
-    pqty=request.GET['qty']
-    pqty=int(pqty)
-    pqty=pqty-1
-    data = cartinfo.objects.get(pid=value)
-    data.pquantity=pqty
-    data.ptotalprice=int(data.ptotalprice)-50
-    data.save()
+    if request.method == 'POST':
+        value = request.POST.get('id')
+        pqty = request.POST.get('qty')
+        
+        # Ensure 'id' and 'qty' parameters are present
+        if not (value and pqty):
+            return HttpResponseBadRequest("Missing 'id' or 'qty' parameter.")
+        
+        try:
+            pqty = int(pqty)
+        except ValueError:
+            return HttpResponseBadRequest("Invalid 'qty' parameter.")
 
-    obj = cartinfo.objects.all()
+        try:
+            data = get_object_or_404(cartinfo, pid=value)
+            data.pquantity = int(data.pquantity)
+            data.pquantity -= 1
+            data.ptotalprice = int(data.ptotalprice)
+            data.ptotalprice -= 50
+            data.save()
+        except cartinfo.DoesNotExist:
+            return HttpResponseNotFound("Cart item not found.")
+        
+        # Redirect to prevent data submission on page refresh
+        return HttpResponseRedirect('/cart')  # Redirect to the same URL
+    else:
+        # Handle non-POST requests appropriately
+        return redirect('index.html')
 
-    return render(request,'cart.html',{'cart':obj})
 
 

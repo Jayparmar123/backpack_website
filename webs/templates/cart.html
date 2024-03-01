@@ -96,14 +96,16 @@
                     <!-- <button onclick="decrease('{{i.pid}}','{{i.price}}')"><i class="fa-solid fa-minus"></i></button>
                     <div class="d-inline plus">1</div>
                     <button onclick="input('{{i}}','{{i.price}}')"><i class="fa-solid fa-plus"></i></button> -->
-                    <form action="uptodate">
+                    <form action="uptodate" method="post">
+                      {% csrf_token %}
                       <input type="text" name="id" value="{{i.pid}}" hidden>
                       <input type="text" name="qty" value="{{i.pquantity}}" style="width: 20px;" hidden>
                       <input type="submit" value="-" class="ms-0">
                     </form>
-                    <form action="update" class="ms-1">
+                    <form action="update" method="post" class="ms-1">
+                      {% csrf_token %}
                       <input type="text" name="id" value="{{i.pid}}" hidden>
-                      <input type="text" name="qty" value="{{i.pquantity}}" style="width: 20px;">
+                      <input type="text" name="qty" value="{{i.pquantity}}" style="width: 30px;" >
                       <input type="submit" value="+" class="ms-0">
                     </form>
                      
