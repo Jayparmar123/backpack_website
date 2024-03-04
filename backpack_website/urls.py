@@ -41,5 +41,7 @@ urlpatterns = [
     path('delete',views.delete),
     path('update',views.update),
     path('uptodate',views.uptodate),
+    path('forgotten',views.forgotpass),
+    path('forgot',views.foorgoot)
 
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

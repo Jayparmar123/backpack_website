@@ -42,7 +42,8 @@ def store(request):
     # return HttpResponse(fn,ln,em,ta)
     obj=contactinfo(fname=fn,lname=ln,email=em,tarea=ta)
     obj.save()
-    return render(request,'contact.html')
+    # return render(request,'contact.html')
+    return HttpResponseRedirect('/contact')
 
 
 def data(request):
@@ -54,7 +55,8 @@ def data(request):
 
     obj1 = signupinfo(uname=name,umail=mailid,pswd=password,phn=phone,adrs=address)
     obj1.save()
-    return render(request,'myaccount.html')
+    # return render(request,'myaccount.html')
+    return HttpResponseRedirect('/account')
 
 def linfo(request):
     loname=request.POST['eminm']
@@ -91,7 +93,8 @@ def cartinfos(request):
 
     obj = cartinfo.objects.all()
 
-    return render(request,'cart.html',{'cart':obj})
+    # return render(request,'cart.html',{'cart':obj})
+    return HttpResponseRedirect('/cart',{'cart':obj})
 
 def delete(request):
     value=request.GET['value']
@@ -162,6 +165,28 @@ def uptodate(request):
     else:
         # Handle non-POST requests appropriately
         return redirect('index.html')
+
+def forgotpass(request):
+    user_name = request.POST.get('emnem')
+    user_pass = request.POST.get('lgpass')
+    user_p = request.POST.get('lgpa')
+
+    if user_p==user_pass:
+        # obj = get_object_or_404(signupinfo, uname=user_name)
+        obj = signupinfo.objects.get(uname=user_name) 
+        obj.pswd = user_p
+        obj.save()
+        
+    else:
+        messages.error(request,"sorry both Password aren't match........")
+        return HttpResponseRedirect('/forgot')
+
+    return HttpResponseRedirect('/account')
+
+
+def foorgoot(request):
+    return render(request,'forgot.html')
+
 
 
 

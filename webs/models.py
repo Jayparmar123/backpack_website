@@ -40,6 +40,3 @@ class cartinfo(models.Model):
     def __str__(self):
         return self.pname
     
-class getinfos(models.Model):
-    pluss=models.IntegerField()
-    minuss=models.IntegerField()
