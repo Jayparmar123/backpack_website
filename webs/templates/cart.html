@@ -74,18 +74,18 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="row">
-                  <div class="col-2">SR.No.</div>
+                  <!-- <div class="col-2">SR.No.</div> -->
                   <div class="col-2">Image</div>
                   <div class="col-2">Product</div>
                   <div class="col-2">Price</div>
                   <div class="col-2">Subtotal</div>
                   <div class="col-2">Quantity</div>
-                  <!-- <div class="col-md-2">Cancel</div> -->
+                  <div class="col-md-2">Cancel</div>
                 </div>
               </div>
-              <div class="col-md-12">
+              <div class="col-md-12 p-0">
                 <div class="d-flex justify-content-evenly align-items-center">
-                  <div class="col-2">{{i.pid}}</div>
+                  <!-- <div class="col-2">{{i.pid}}</div> -->
                   <div class="col-2">
                     <img src="/media/{{i.pimage}}" class="img-fluid" height="70px" width="70px" alt="">
                   </div>
@@ -105,16 +105,16 @@
                     <form action="update" method="post" class="ms-1">
                       {% csrf_token %}
                       <input type="text" name="id" value="{{i.pid}}" hidden>
-                      <input type="text" name="qty" value="{{i.pquantity}}" style="width: 30px;" >
+                      <input type="text" name="qty" value="{{i.pquantity}}" style="width: 20px;" >
                       <input type="submit" value="+" class="ms-0">
                     </form>
-                     
+                </div>
+                <div class="col-md-2">
                   <form action="delete">
                     <input type="text" name="value" value="{{i.pid}}" hidden>
                     <input type="submit" value="X" class="ms-3">
                   </form>
                   </div>
-
                 </div>
               </div>
             </div>

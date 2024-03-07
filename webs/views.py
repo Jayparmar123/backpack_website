@@ -157,6 +157,8 @@ def uptodate(request):
             data.ptotalprice = int(data.ptotalprice)
             data.ptotalprice -= 50
             data.save()
+            if data.pquantity==0:
+                data.delete()
         except cartinfo.DoesNotExist:
             return HttpResponseNotFound("Cart item not found.")
         
@@ -170,13 +172,17 @@ def forgotpass(request):
     user_name = request.POST.get('emnem')
     user_pass = request.POST.get('lgpass')
     user_p = request.POST.get('lgpa')
-
+    obj = signupinfo.objects.all()
     if user_p==user_pass:
         # obj = get_object_or_404(signupinfo, uname=user_name)
-        obj = signupinfo.objects.get(uname=user_name) 
-        obj.pswd = user_p
-        obj.save()
-        
+        # obj = signupinfo.objects.get(uname=user_name) or  signupinfo.objects.get(umail=user_name)
+        for i in obj:
+            if (i.uname==user_name or i.umail==user_name):
+                i.pswd = user_p
+                i.save()
+
+        messages.error(request,"sorry user not found.......")
+        return HttpResponseRedirect('/forgot')
     else:
         messages.error(request,"sorry both Password aren't match........")
         return HttpResponseRedirect('/forgot')
