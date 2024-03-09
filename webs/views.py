@@ -109,30 +109,20 @@ def update(request):
     if request.method == 'POST':
         value = request.POST.get('id')
         pqty = request.POST.get('qty')
-        
-        # Ensure 'id' and 'qty' parameters are present
-        if not (value and pqty):
-            return HttpResponseBadRequest("Missing 'id' or 'qty' parameter.")
-        
-        try:
-            pqty = int(pqty)
-        except ValueError:
-            return HttpResponseBadRequest("Invalid 'qty' parameter.")
+        pqty = int(pqty)
 
-        try:
-            data = get_object_or_404(cartinfo, pid=value)
-            data.pquantity = int(data.pquantity)
-            data.pquantity += 1
-            data.ptotalprice = int(data.ptotalprice)
-            data.ptotalprice += 50
-            data.save()
-        except cartinfo.DoesNotExist:
-            return HttpResponseNotFound("Cart item not found.")
+        data = cartinfo.objects.get(pid=value)
+        data.pquantity = int(data.pquantity)
+        data.pquantity += 1
+        data.ptotalprice = int(data.ptotalprice)
+        data.ptotalprice += 50
+        data.save()
+        if data.pquantity==0:
+                data.delete()
         
         # Redirect to prevent data submission on page refresh
         return HttpResponseRedirect('/cart')  # Redirect to the same URL
     else:
-        # Handle non-POST requests appropriately
         return redirect('index.html')
 
 
@@ -140,32 +130,20 @@ def uptodate(request):
     if request.method == 'POST':
         value = request.POST.get('id')
         pqty = request.POST.get('qty')
-        
-        # Ensure 'id' and 'qty' parameters are present
-        if not (value and pqty):
-            return HttpResponseBadRequest("Missing 'id' or 'qty' parameter.")
-        
-        try:
-            pqty = int(pqty)
-        except ValueError:
-            return HttpResponseBadRequest("Invalid 'qty' parameter.")
+        pqty = int(pqty)
 
-        try:
-            data = get_object_or_404(cartinfo, pid=value)
-            data.pquantity = int(data.pquantity)
-            data.pquantity -= 1
-            data.ptotalprice = int(data.ptotalprice)
-            data.ptotalprice -= 50
-            data.save()
-            if data.pquantity==0:
+        data = cartinfo.objects.get(pid=value)
+        data.pquantity = int(data.pquantity)
+        data.pquantity -= 1
+        data.ptotalprice = int(data.ptotalprice)
+        data.ptotalprice -= 50
+        data.save()
+        if data.pquantity==0:
                 data.delete()
-        except cartinfo.DoesNotExist:
-            return HttpResponseNotFound("Cart item not found.")
         
         # Redirect to prevent data submission on page refresh
         return HttpResponseRedirect('/cart')  # Redirect to the same URL
     else:
-        # Handle non-POST requests appropriately
         return redirect('index.html')
 
 def forgotpass(request):
@@ -181,13 +159,15 @@ def forgotpass(request):
                 i.pswd = user_p
                 i.save()
 
+                 
         messages.error(request,"sorry user not found.......")
         return HttpResponseRedirect('/forgot')
+
+        return HttpResponseRedirect('/account')
     else:
         messages.error(request,"sorry both Password aren't match........")
         return HttpResponseRedirect('/forgot')
 
-    return HttpResponseRedirect('/account')
 
 
 def foorgoot(request):
