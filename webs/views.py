@@ -147,25 +147,30 @@ def uptodate(request):
         return redirect('index.html')
 
 def forgotpass(request):
-    user_name = request.POST.get('emnem')
-    user_pass = request.POST.get('lgpass')
-    user_p = request.POST.get('lgpa')
-    obj = signupinfo.objects.all()
-    if user_p==user_pass:
-        # obj = get_object_or_404(signupinfo, uname=user_name)
-        # obj = signupinfo.objects.get(uname=user_name) or  signupinfo.objects.get(umail=user_name)
-        for i in obj:
-            if (i.uname==user_name or i.umail==user_name):
-                i.pswd = user_p
-                i.save()
-
-                 
-        messages.error(request,"sorry user not found.......")
-        return HttpResponseRedirect('/forgot')
-
-        return HttpResponseRedirect('/account')
+    if request.method == 'POST':
+        user_name = request.POST.get('emnem')
+        user_pass = request.POST.get('lgpass')
+        user_p = request.POST.get('lgpa')
+        obj = signupinfo.objects.all()
+        if user_p == user_pass:
+            for i in obj:
+                if i.uname == user_name or i.umail == user_name:
+                    i.pswd = user_p
+                    i.save()
+                    
+                    # Redirect to account page after changing password
+                    messages.success(request, "Password changed!.....")
+                    return HttpResponseRedirect('/account')
+            
+            # If user not found
+            messages.error(request, "Sorry, user not found...")
+            return HttpResponseRedirect('/forgot')
+        else:
+            # If passwords don't match
+            messages.error(request, "Sorry, passwords don't match...")
+            return HttpResponseRedirect('/forgot')
     else:
-        messages.error(request,"sorry both Password aren't match........")
+        # If not a POST request
         return HttpResponseRedirect('/forgot')
 
 
